@@ -244,8 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bluePrefab: {fileID: 2259161298844523036, guid: 1621147ccb7fe1d438d7ff677359cdf1, type: 3}
   fireRate: 0.4
-  speed: 50
-  boundary: 20
+  speed: 25
 --- !u!4 &1374347396
 Transform:
   m_ObjectHideFlags: 0

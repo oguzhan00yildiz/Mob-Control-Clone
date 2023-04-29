@@ -7,7 +7,7 @@ public class CannonManager : MonoBehaviour
     [SerializeField] private GameObject bluePrefab;
     [SerializeField] private float fireRate = 0.5f; 
     [SerializeField] private float speed=5f; 
-    [SerializeField] private float boundary =10f;
+    
     private float nextFire = 0.0f; 
 
     void Update()
@@ -29,7 +29,7 @@ public class CannonManager : MonoBehaviour
     private void MoveHorizontal()
     {
         float mouseX = Input.mousePosition.x / Screen.width;
-        float xPos = (mouseX - 0.5f) * boundary * 2f; 
+        float xPos = (mouseX - 0.5f) * speed * 2f; 
         transform.position = new Vector3(xPos, transform.position.y, transform.position.z);
     }
 
