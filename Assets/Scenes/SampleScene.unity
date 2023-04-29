@@ -356,6 +356,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerBlue
       objectReference: {fileID: 0}
+    - target: {fileID: 8201727714985951242, guid: 1621147ccb7fe1d438d7ff677359cdf1, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4770296967332206271, guid: 1621147ccb7fe1d438d7ff677359cdf1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1621147ccb7fe1d438d7ff677359cdf1, type: 3}

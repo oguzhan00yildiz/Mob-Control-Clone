@@ -386,10 +386,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1446209186651193510}
   - component: {fileID: 4823877757978909404}
-  - component: {fileID: 2415453453868593108}
-  - component: {fileID: 4770296967332206271}
   - component: {fileID: 118889971433699290}
+  - component: {fileID: 2415453453868593108}
   - component: {fileID: 1311089552967054638}
+  - component: {fileID: 8201727714985951242}
   m_Layer: 0
   m_Name: PlayerBlue
   m_TagString: blue
@@ -435,36 +435,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!136 &2415453453868593108
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2259161298844523036}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.5367312
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.798908, z: 0}
---- !u!114 &4770296967332206271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2259161298844523036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ee9614a1fdfe3a4eac4681737960b9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isBossAttacking: 0
-  blueanim: {fileID: 0}
-  smokeeffect: {fileID: 5394683061290479735, guid: bd2b49953e98ab047aef896579c7ee3b, type: 3}
-  bloodsplashblue: {fileID: 5394683061290479735, guid: bd2b49953e98ab047aef896579c7ee3b, type: 3}
 --- !u!54 &118889971433699290
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -481,6 +451,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!136 &2415453453868593108
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2259161298844523036}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.5367312
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.798908, z: 0}
 --- !u!136 &1311089552967054638
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -495,6 +479,18 @@ CapsuleCollider:
   m_Height: 1.51
   m_Direction: 1
   m_Center: {x: 0, y: 0.798908, z: 0}
+--- !u!114 &8201727714985951242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2259161298844523036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a7b2485f493dae43b34b33ed77126c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2398775651129542618
 GameObject:
   m_ObjectHideFlags: 0
