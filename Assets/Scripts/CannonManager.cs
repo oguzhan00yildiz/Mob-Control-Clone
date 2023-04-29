@@ -28,8 +28,8 @@ public class CannonManager : MonoBehaviour
 
     private void MoveHorizontal()
     {
-        float mouseX = Input.mousePosition.x / Screen.width; // Mouse pozisyonunu ekranda yüzde cinsinden al
-        float xPos = (mouseX - 0.5f) * boundary * 2f; // Mouse pozisyonunu canvas genişliği ile çarp ve ortala
+        float mouseX = Input.mousePosition.x / Screen.width;
+        float xPos = (mouseX - 0.5f) * boundary * 2f; 
         transform.position = new Vector3(xPos, transform.position.y, transform.position.z);
     }
 
