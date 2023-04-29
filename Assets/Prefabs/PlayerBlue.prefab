@@ -406,7 +406,7 @@ Transform:
   m_GameObject: {fileID: 2259161298844523036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.81, z: 46.899994}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2332953692228901827}
@@ -458,10 +458,10 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2259161298844523036}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: d4eea297fd4c0c94b87401d0d057c9a8, type: 2}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.35
   m_Height: 1.5367312
   m_Direction: 1
   m_Center: {x: 0, y: 0.798908, z: 0}
@@ -472,10 +472,10 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2259161298844523036}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: d4eea297fd4c0c94b87401d0d057c9a8, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.4
+  m_Radius: 0.25
   m_Height: 1.51
   m_Direction: 1
   m_Center: {x: 0, y: 0.798908, z: 0}
@@ -492,7 +492,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  shotSpeed: 50
 --- !u!1 &2398775651129542618
 GameObject:
   m_ObjectHideFlags: 0
