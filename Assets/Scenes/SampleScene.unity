@@ -222,6 +222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1374347396}
   - component: {fileID: 1374347395}
+  - component: {fileID: 1374347397}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -243,6 +244,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bluePrefab: {fileID: 2259161298844523036, guid: 1621147ccb7fe1d438d7ff677359cdf1, type: 3}
   fireRate: 0.4
+  speed: 50
+  boundary: 10
 --- !u!4 &1374347396
 Transform:
   m_ObjectHideFlags: 0
@@ -261,6 +264,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1374347397
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374347394}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &1471047189 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3645980287837677384, guid: d762bc0b074bf1f4e9e5c6aed415643e, type: 3}

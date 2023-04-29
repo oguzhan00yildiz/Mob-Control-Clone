@@ -6,6 +6,8 @@ public class CannonManager : MonoBehaviour
 {
     [SerializeField] private GameObject bluePrefab;
     [SerializeField] private float fireRate = 0.5f; 
+    [SerializeField] private float speed=5f; 
+    [SerializeField] private float boundary =10f;
     private float nextFire = 0.0f; 
 
     void Update()
@@ -15,10 +17,20 @@ public class CannonManager : MonoBehaviour
             nextFire = Time.time + fireRate; 
             Shoot();
         }
+
+        MoveHorizontal();
     }
 
     private void Shoot()
     {
         Instantiate(bluePrefab, transform.position, Quaternion.identity);
     }
+
+    private void MoveHorizontal()
+    {
+        float mouseX = Input.mousePosition.x / Screen.width; // Mouse pozisyonunu ekranda yüzde cinsinden al
+        float xPos = (mouseX - 0.5f) * boundary * 2f; // Mouse pozisyonunu canvas genişliği ile çarp ve ortala
+        transform.position = new Vector3(xPos, transform.position.y, transform.position.z);
+    }
+
 }
