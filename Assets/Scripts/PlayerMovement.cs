@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5f; 
+    public float speed = 5f;
+    public float shotSpeed=10f; 
     private Rigidbody rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        StartCoroutine(ApplyForce());
     }
 
     void Update()
@@ -19,7 +21,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        rb.velocity = new Vector3(0, 0, speed);
+        transform.position += transform.forward * speed * Time.deltaTime;
     }
 
+    IEnumerator ApplyForce()
+    {
+        
+        rb.AddForce(transform.forward * shotSpeed, ForceMode.Impulse);
+        yield return new WaitForSeconds(.4f);
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+    }
 }
