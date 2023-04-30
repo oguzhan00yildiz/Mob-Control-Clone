@@ -5,12 +5,15 @@ using UnityEngine;
 public class GateManager : MonoBehaviour
 {
     [SerializeField] private GameObject bluePrefab;
+    [SerializeField] private int multiplyNumber;
+    [SerializeField] private TextMesh gateText;
     private Vector3 playerPosition;
     private GameObject cloneBlue;
 
+
     void Start()
     {
-        
+        gateText.text=multiplyNumber.ToString()+"x";
     }
 
        void Update()
@@ -18,10 +21,12 @@ public class GateManager : MonoBehaviour
         
     }
 
-    private void Multiply()
+    private void Multiply(int multiplynumber)
     {
-        int multiplier;
-        multiplier = Random.Range(2,6);
+        int multiplier=1;
+        multiplier=multiplynumber;
+        
+        //multiplier = Random.Range(2,6);
 
         for (int i = 0; i < multiplier; i++)
         {
@@ -40,7 +45,7 @@ public class GateManager : MonoBehaviour
         {
            playerPosition=other.transform.position;
            Destroy(other.gameObject);
-           Multiply(); 
+           Multiply(multiplyNumber); 
         }
         
     }
