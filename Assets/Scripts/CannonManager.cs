@@ -5,9 +5,11 @@ using UnityEngine;
 public class CannonManager : MonoBehaviour
 {
     [SerializeField] private GameObject bluePrefab;
+    [SerializeField] private GameObject BigPlayerPrefab;
     [SerializeField] private float fireRate = 0.5f; 
     [SerializeField] private float speed=5f; 
     [SerializeField]private Rigidbody rb;
+    private int chargeCount=0;
     public float shotSpeed=10f; 
     
     private float nextFire = 0.0f; 
@@ -34,9 +36,22 @@ public class CannonManager : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject cloneBlue= Instantiate(bluePrefab, transform.position, Quaternion.identity);
-        rb=cloneBlue.GetComponent<Rigidbody>();
-        StartCoroutine(ApplyForce());  
+        if (chargeCount==25)
+        {
+            GameObject BigPlayer= Instantiate(BigPlayerPrefab, transform.position, Quaternion.identity); 
+            rb=BigPlayer.GetComponent<Rigidbody>();
+            StartCoroutine(ApplyForce());  
+            chargeCount=0;
+        }
+        else
+        {
+            GameObject cloneBlue= Instantiate(bluePrefab, transform.position, Quaternion.identity);
+            rb=cloneBlue.GetComponent<Rigidbody>();
+            StartCoroutine(ApplyForce());  
+            chargeCount++;
+        }
+        
+        
     }
 
     private void MoveHorizontal()

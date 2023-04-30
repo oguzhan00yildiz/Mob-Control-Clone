@@ -391,8 +391,8 @@ GameObject:
   - component: {fileID: 1311089552967054638}
   - component: {fileID: 8201727714985951242}
   m_Layer: 0
-  m_Name: PlayerBlue
-  m_TagString: blue
+  m_Name: smallPrefab
+  m_TagString: small
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a7b2485f493dae43b34b33ed77126c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 7
 --- !u!1 &2398775651129542618
 GameObject:
   m_ObjectHideFlags: 0

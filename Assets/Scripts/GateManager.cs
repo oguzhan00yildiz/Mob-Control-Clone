@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class GateManager : MonoBehaviour
 {
-    [SerializeField] private GameObject bluePrefab;
+    [SerializeField] private GameObject smallPrefab;
+    [SerializeField] private GameObject bigPrefab;
     [SerializeField] private int multiplyNumber;
     [SerializeField] private TextMesh gateText;
     private Vector3 playerPosition;
-    private GameObject cloneBlue;
+    private GameObject cloneSmall;
+    private GameObject cloneBig;
+
 
 
     void Start()
@@ -21,38 +24,46 @@ public class GateManager : MonoBehaviour
         
     }
 
-    private void Multiply(int multiplynumber)
+    private void Multiply(int multiplynumber,GameObject charactertype)
     {
         int multiplier=1;
         multiplier=multiplynumber;
         
-        //multiplier = Random.Range(2,6);
-
         for (int i = 0; i < multiplier; i++)
         {
             var rnd=Random.Range(-1f,1f);
-            Vector3 newPosition = playerPosition + new Vector3(rnd, 0, rnd); //rastgele pozisyon oluştur
-            cloneBlue = Instantiate(bluePrefab, newPosition, Quaternion.identity);
-            cloneBlue.tag="null";
-            StartCoroutine(TagTimer(cloneBlue));
+            Vector3 newPosition = playerPosition + new Vector3(rnd, 0, 0);
+            if (charactertype.CompareTag("small"))
+            {
+                cloneSmall = Instantiate(smallPrefab, newPosition, Quaternion.identity);
+                StartCoroutine(TagTimer(cloneSmall));
+            }
+            else if(charactertype.CompareTag("big"))
+            {
+                cloneBig = Instantiate(bigPrefab, newPosition, Quaternion.identity);
+                StartCoroutine(TagTimer(cloneBig));
+            }
+            
         }
 
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("blue"))
+        if (other.CompareTag("small")||other.CompareTag("big"))
         {
            playerPosition=other.transform.position;
            Destroy(other.gameObject);
-           Multiply(multiplyNumber); 
-        }
-        
+           Multiply(multiplyNumber,other.gameObject); 
+        } 
     }
 
     private IEnumerator TagTimer(GameObject obj)
 {
+    var temptag=obj.tag;
+    obj.tag="null";
     yield return new WaitForSeconds(.5f);
-    obj.tag = "blue";
+    
+    obj.tag = temptag;
 }
 }
