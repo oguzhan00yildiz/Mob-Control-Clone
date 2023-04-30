@@ -18,10 +18,11 @@ public class CannonManager : MonoBehaviour
         {
             nextFire = Time.time + fireRate; 
             Shoot();
-
-            
         }
+    }
 
+    private void FixedUpdate()
+    {
         MoveHorizontal();
     }
 
@@ -42,6 +43,7 @@ public class CannonManager : MonoBehaviour
     {
         float mouseX = Input.mousePosition.x / Screen.width;
         float xPos = (mouseX - 0.5f) * speed * 2f; 
+        xPos = Mathf.Clamp(xPos, -20f, 20f);
         transform.position = new Vector3(xPos, transform.position.y, transform.position.z);
     }
 
