@@ -64,6 +64,9 @@ public class GateManager : MonoBehaviour
     obj.tag="null";
     yield return new WaitForSeconds(.5f);
     
-    obj.tag = temptag;
+    if (obj)
+    {
+        obj.tag = temptag;
+    } 
 }
 }
