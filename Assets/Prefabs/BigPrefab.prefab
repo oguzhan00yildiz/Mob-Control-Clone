@@ -1132,6 +1132,7 @@ GameObject:
   - component: {fileID: 7253079300340881388}
   - component: {fileID: 7253079300340881391}
   - component: {fileID: -3911570472051699496}
+  - component: {fileID: -6634039753869463297}
   m_Layer: 0
   m_Name: BigPrefab
   m_TagString: big
@@ -1234,6 +1235,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+--- !u!114 &-6634039753869463297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7523673158872808841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b291d513f7f314eba32ac1f4431f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7693964318231243181
 GameObject:
   m_ObjectHideFlags: 0

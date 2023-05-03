@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CannonManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class CannonManager : MonoBehaviour
     [SerializeField] private float fireRate = 0.5f; 
     [SerializeField] private float speed=5f; 
     [SerializeField]private Rigidbody rb;
+    [SerializeField] private Slider bigPlayerSlider;
     private int chargeCount=0;
     public float shotSpeed=10f; 
     
@@ -21,6 +23,7 @@ public class CannonManager : MonoBehaviour
             nextFire = Time.time + fireRate; 
             Shoot();
         }
+        bigPlayerSlider.value = chargeCount;
     }
 
     private void FixedUpdate()
@@ -30,8 +33,7 @@ public class CannonManager : MonoBehaviour
 
     private void Start() 
     {
-
-       
+        bigPlayerSlider.value = chargeCount;
     }
 
     private void Shoot()
