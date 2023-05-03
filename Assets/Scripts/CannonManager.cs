@@ -12,6 +12,7 @@ public class CannonManager : MonoBehaviour
     [SerializeField]private Rigidbody rb;
     [SerializeField] private Slider bigPlayerSlider;
     [SerializeField] private GameObject muzzle;
+    [SerializeField] private Animator animator;
     private int chargeCount=0;
     public float shotSpeed=10f; 
     private float nextFire = 0.0f; 
@@ -39,6 +40,7 @@ public class CannonManager : MonoBehaviour
 
     private void Shoot()
     {
+        animator.SetTrigger("CannonShoot");
         GameObject cloneBlue= Instantiate(bluePrefab, muzzle.transform.position, Quaternion.identity);
         rb=cloneBlue.GetComponent<Rigidbody>();
         StartCoroutine(ApplyForce());
