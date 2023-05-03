@@ -49,6 +49,7 @@ public class CannonManager : MonoBehaviour
 
     private void ShootBig()
     {
+        animator.SetTrigger("CannonShoot");
         GameObject BigPlayer= Instantiate(BigPlayerPrefab, muzzle.transform.position, Quaternion.identity); 
         rb=BigPlayer.GetComponent<Rigidbody>();
         StartCoroutine(ApplyForce());  
