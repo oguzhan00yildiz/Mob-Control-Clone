@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         
+        
     }
 
     void Update()
@@ -26,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        transform.position += transform.forward * speed * Time.deltaTime;
+        rb.velocity=transform.forward*speed;
     }
 
     

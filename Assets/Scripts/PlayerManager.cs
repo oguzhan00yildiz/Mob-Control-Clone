@@ -23,8 +23,8 @@ public class PlayerManager : MonoBehaviour
         {
             if (other.CompareTag("enemysmall"))
             {
-                Destroy(other.gameObject);
-                Destroy(gameObject);
+                Destroy(other.gameObject,0.2f);
+                Destroy(gameObject,0.2f);
             }
         }
         else
@@ -39,8 +39,8 @@ public class PlayerManager : MonoBehaviour
                 }
                 else
                 {
-                    Destroy(other.gameObject);
-                    Destroy(gameObject);
+                    Destroy(other.gameObject,0.2f);
+                    Destroy(gameObject,0.2f);
                 }
             }
         }
