@@ -6,6 +6,7 @@ using TMPro;
 public class CastleManager : MonoBehaviour
 {
     [SerializeField] TMP_Text castleHealthText;
+    [SerializeField] private ParticleSystem castleParticles;
     private Animator animator;
     private int castleHealth = 50;
     // Start is called before the first frame update
@@ -33,6 +34,8 @@ public class CastleManager : MonoBehaviour
     private void OnDamage()
     {
         animator.SetTrigger("Damage");
+        castleParticles.Play();
+        
     }
 
 }
