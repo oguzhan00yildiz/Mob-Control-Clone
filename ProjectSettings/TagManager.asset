@@ -9,6 +9,8 @@ TagManager:
   - small
   - big
   - enemysmall
+  - Castle
+  - CastleRotate
   layers:
   - Default
   - TransparentFX

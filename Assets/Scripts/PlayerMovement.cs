@@ -30,5 +30,16 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity=transform.forward*speed;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(gameObject.CompareTag("small") || gameObject.CompareTag("big"))
+        {
+            if(other.CompareTag("CastleRotate"))
+            {
+                gameObject.transform.LookAt(other.gameObject.transform);
+            }
+        }
+
+    }
     
 }
