@@ -1335,6 +1335,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.5368876, y: 7.1549597, z: 7.1140833}
   m_Center: {x: -0.0000104904175, y: 0.2513379, z: 0.19638014}
+--- !u!114 &1958101955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958101951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c52923630048d64485651aee5b79d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castleHealthText: {fileID: 1177434761}
 --- !u!1001 &1964485568
 PrefabInstance:
   m_ObjectHideFlags: 0
