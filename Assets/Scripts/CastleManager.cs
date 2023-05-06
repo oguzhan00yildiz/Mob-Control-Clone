@@ -6,10 +6,12 @@ using TMPro;
 public class CastleManager : MonoBehaviour
 {
     [SerializeField] TMP_Text castleHealthText;
+    private Animator animator;
     private int castleHealth = 50;
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         castleHealthText.text = castleHealth.ToString();
     }
 
@@ -23,9 +25,14 @@ public class CastleManager : MonoBehaviour
         if(other.CompareTag("small") || other.CompareTag("big"))
         {
             castleHealth--;
+            OnDamage();
             Destroy(other.gameObject, 0.5f);
         }
     }
 
+    private void OnDamage()
+    {
+        animator.SetTrigger("Damage");
+    }
 
 }
