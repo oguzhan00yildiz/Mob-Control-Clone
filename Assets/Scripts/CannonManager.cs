@@ -50,7 +50,7 @@ public class CannonManager : MonoBehaviour
     private void Shoot()
     {
         animator.SetTrigger("CannonShoot");
-        GameObject cloneBlue= Instantiate(bluePrefab, muzzle.transform.position, Quaternion.identity);
+        GameObject cloneBlue= Instantiate(bluePrefab, muzzle.transform.position, muzzle.transform.rotation);
         rb=cloneBlue.GetComponent<Rigidbody>();
         StartCoroutine(ApplyForce());
         if(chargeCount <25) chargeCount++; 
