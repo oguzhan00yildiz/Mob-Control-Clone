@@ -16,23 +16,38 @@ public class PathFollow : MonoBehaviour
     {
 
     }
-
-    void Update()
+    private void FixedUpdate()
     {
-        if(pointsIndex <= Points.Length -1)
+        if (pointsIndex <= Points.Length - 1)
         {
             transform.position = Vector3.MoveTowards(transform.position, Points[pointsIndex].transform.position, moveSpeed * Time.deltaTime);
 
-            if(transform.position == Points[pointsIndex].transform.position)
+            if (transform.position == Points[pointsIndex].transform.position)
             {
-                direction = Points[Points.Length-1].transform.position - transform.position;
+                pointsIndex++;
 
-                Vector3 newDirection = Vector3.RotateTowards(transform.forward, direction, rotationSpeed * Time.deltaTime, 0.0f);
-
-                transform.rotation = Quaternion.LookRotation(newDirection);
-
-                pointsIndex += 1;
+                if (pointsIndex <= Points.Length - 1)
+                {
+                    StartCoroutine(RotateTowardsPoint(Points[pointsIndex].transform.position));
+                }
             }
         }
     }
+
+    private IEnumerator RotateTowardsPoint(Vector3 targetPoint)
+    {
+        Quaternion startRotation = transform.rotation;
+        Vector3 direction = (targetPoint - transform.position).normalized;
+
+        while (Quaternion.Angle(transform.rotation, Quaternion.LookRotation(direction)) > 0.1f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        transform.rotation = Quaternion.LookRotation(direction);
+    }
+
+
 }

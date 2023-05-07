@@ -55,13 +55,26 @@ public class CannonManager : MonoBehaviour
         StartCoroutine(ApplyForce());  
         chargeCount=0;
     }
+
     private void MoveHorizontal()
+{
+    float mouseX = Input.mousePosition.x / Screen.width;
+    float xPos = (mouseX - 0.5f) * speed * 2f; 
+    xPos = Mathf.Clamp(xPos, -20f, 20f);
+
+    // Convert the input position from world space to local space
+    Vector3 localPos = transform.TransformDirection(new Vector3(xPos, 0f, 0f));
+
+    // Set the local position of the cannon
+    transform.localPosition = new Vector3(localPos.x, transform.localPosition.y, transform.localPosition.z);
+}
+    /* private void MoveHorizontal()
     {
         float mouseX = Input.mousePosition.x / Screen.width;
         float xPos = (mouseX - 0.5f) * speed * 2f; 
         xPos = Mathf.Clamp(xPos, -20f, 20f);
         transform.position = new Vector3(xPos, transform.position.y, transform.position.z);
-    }
+    } */
 
     IEnumerator ApplyForce()
     {
