@@ -12,16 +12,25 @@ public class GateManager : MonoBehaviour
     private GameObject cloneSmall;
     private GameObject cloneBig;
     [SerializeField] private GameObject level1;
+    public float speed = 2.0f;
+    public float distance = 2.0f; 
+    private float originalPos;
+    [SerializeField] private bool gateCanMove;
 
 
 
     void Start()
     {
         gateText.text=multiplyNumber.ToString()+"x";
+        originalPos = transform.parent.transform.position.x;
     }
 
        void Update()
     {
+        if (gateCanMove)
+        {
+            GateMove();
+        }
         
     }
 
@@ -62,14 +71,20 @@ public class GateManager : MonoBehaviour
     }
 
     private IEnumerator TagTimer(GameObject obj)
-{
-    var temptag=obj.tag;
-    obj.tag="null";
-    yield return new WaitForSeconds(.5f);
-    
-    if (obj)
     {
-        obj.tag = temptag;
-    } 
-}
+        var temptag=obj.tag;
+        obj.tag="null";
+        yield return new WaitForSeconds(.5f);
+    
+        if (obj)
+        {
+           obj.tag = temptag;
+        } 
+    }
+
+    private void GateMove()
+    {
+        float newPos = originalPos + Mathf.PingPong(Time.time * speed, distance);
+        transform.parent.transform.position = new Vector3(newPos, transform.parent.transform.position.y, transform.parent.transform.position.z);
+    }
 }
