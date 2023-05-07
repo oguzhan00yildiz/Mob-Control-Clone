@@ -22,7 +22,7 @@ public class PathFollow : MonoBehaviour
         {
             if (pointsIndex <= Points.Length - 1)
             {
-            transform.position = Vector3.MoveTowards(transform.position, Points[pointsIndex].transform.position, moveSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, Points[pointsIndex].transform.position, moveSpeed * Time.deltaTime);
 
                 if (transform.position == Points[pointsIndex].transform.position)
                 {
