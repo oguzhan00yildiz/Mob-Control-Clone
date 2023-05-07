@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class BaseLine : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private GameObject defeatImg;   
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
@@ -21,7 +22,8 @@ public class BaseLine : MonoBehaviour
     {
         if (other.CompareTag("enemysmall"))
         {
-            SceneManager.LoadScene(0);
+            //SceneManager.LoadScene(0);
+            defeatImg.SetActive(true);
         }
     }
 }

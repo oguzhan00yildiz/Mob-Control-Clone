@@ -7,6 +7,7 @@ public class PathFollow : MonoBehaviour
     [SerializeField] private Transform[] Points;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
+    [SerializeField] private GameObject CannonBottom;
 
     private Quaternion lookRotation;
     private Vector3 direction;
@@ -29,16 +30,21 @@ public class PathFollow : MonoBehaviour
           
             if (pointsIndex <= Points.Length - 1&&isLevelDestroyed)
             {
+                CannonBottom.transform.eulerAngles=new Vector3(0,90,0);
                 transform.position = Vector3.MoveTowards(transform.position, Points[pointsIndex].transform.position, moveSpeed * Time.deltaTime);
 
                 if (transform.position == Points[pointsIndex].transform.position)
                 {
                     pointsIndex++;
+                    
 
                     if (pointsIndex <= Points.Length - 1)
                     {
                         StartCoroutine(RotateTowardsPoint(Points[pointsIndex].transform.position));
+                        
                     }
+
+                    CannonBottom.transform.localEulerAngles=new Vector3(0,0,0);
                 }
             }
 
@@ -59,6 +65,7 @@ public class PathFollow : MonoBehaviour
         }
 
         transform.rotation = Quaternion.LookRotation(direction);
+        
     }
 
     private IEnumerator DestroyLevel()
