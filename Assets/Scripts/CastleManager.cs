@@ -8,10 +8,12 @@ public class CastleManager : MonoBehaviour
     [SerializeField] TMP_Text castleHealthText;
     [SerializeField] private ParticleSystem castleParticles;
     private Animator animator;
-    private int castleHealth = 50;
+    public int castleHealth = 50;
+    public static CastleManager instance;
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         animator = GetComponent<Animator>();
         castleHealthText.text = castleHealth.ToString();
     }

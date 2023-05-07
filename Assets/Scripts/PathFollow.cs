@@ -18,20 +18,24 @@ public class PathFollow : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (pointsIndex <= Points.Length - 1)
+        if(CastleManager.instance.castleHealth < -10)
         {
+            if (pointsIndex <= Points.Length - 1)
+            {
             transform.position = Vector3.MoveTowards(transform.position, Points[pointsIndex].transform.position, moveSpeed * Time.deltaTime);
 
-            if (transform.position == Points[pointsIndex].transform.position)
-            {
-                pointsIndex++;
-
-                if (pointsIndex <= Points.Length - 1)
+                if (transform.position == Points[pointsIndex].transform.position)
                 {
-                    StartCoroutine(RotateTowardsPoint(Points[pointsIndex].transform.position));
+                    pointsIndex++;
+
+                    if (pointsIndex <= Points.Length - 1)
+                    {
+                        StartCoroutine(RotateTowardsPoint(Points[pointsIndex].transform.position));
+                    }
                 }
             }
         }
+        
     }
 
     private IEnumerator RotateTowardsPoint(Vector3 targetPoint)
