@@ -13,6 +13,8 @@ public class CannonManager : MonoBehaviour
     [SerializeField] private Slider bigPlayerSlider;
     [SerializeField] private GameObject muzzle;
     [SerializeField] private Animator animator;
+    [SerializeField] private Sprite sliderFullImage;
+    [SerializeField] private Sprite sliderLoadImage;
     private int chargeCount=0;
     public float shotSpeed=10f; 
     private float nextFire = 0.0f; 
@@ -26,6 +28,13 @@ public class CannonManager : MonoBehaviour
         }
         else if(Input.GetMouseButtonUp(0) && chargeCount == 25) ShootBig();
         bigPlayerSlider.value = chargeCount;
+        
+        if(bigPlayerSlider.value == 25)
+        {
+            bigPlayerSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().sprite = sliderFullImage;
+        }
+        
+
     }
 
     private void FixedUpdate()
@@ -52,7 +61,8 @@ public class CannonManager : MonoBehaviour
         animator.SetTrigger("CannonShoot");
         GameObject BigPlayer= Instantiate(BigPlayerPrefab, muzzle.transform.position, Quaternion.identity); 
         rb=BigPlayer.GetComponent<Rigidbody>();
-        StartCoroutine(ApplyForce());  
+        StartCoroutine(ApplyForce());
+        bigPlayerSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().sprite = sliderLoadImage;  
         chargeCount=0;
     }
 
