@@ -11,6 +11,7 @@ TagManager:
   - enemysmall
   - Castle
   - CastleRotate
+  - BaseLine
   layers:
   - Default
   - TransparentFX
