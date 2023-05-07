@@ -11,6 +11,7 @@ public class GateManager : MonoBehaviour
     private Vector3 playerPosition;
     private GameObject cloneSmall;
     private GameObject cloneBig;
+    [SerializeField] private GameObject level1;
 
 
 
@@ -37,11 +38,13 @@ public class GateManager : MonoBehaviour
             {
                 cloneSmall = Instantiate(smallPrefab, newPosition, Quaternion.identity);
                 StartCoroutine(TagTimer(cloneSmall));
+                cloneSmall.transform.SetParent(level1.transform);
             }
             else if(charactertype.CompareTag("big"))
             {
                 cloneBig = Instantiate(bigPrefab, newPosition, Quaternion.identity);
                 StartCoroutine(TagTimer(cloneBig));
+                cloneBig.transform.SetParent(level1.transform);
             }
             
         }

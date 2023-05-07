@@ -15,6 +15,7 @@ public class CannonManager : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Sprite sliderFullImage;
     [SerializeField] private Sprite sliderLoadImage;
+    [SerializeField] private GameObject Level1;
     private int chargeCount=0;
     public float shotSpeed=10f; 
     private float nextFire = 0.0f; 
@@ -54,16 +55,22 @@ public class CannonManager : MonoBehaviour
         rb=cloneBlue.GetComponent<Rigidbody>();
         StartCoroutine(ApplyForce());
         if(chargeCount <25) chargeCount++; 
+        if (cloneBlue)
+        {
+            cloneBlue.transform.SetParent(Level1.transform);
+        }
+        
     }
 
     private void ShootBig()
     {
         animator.SetTrigger("CannonShoot");
-        GameObject BigPlayer= Instantiate(BigPlayerPrefab, muzzle.transform.position, Quaternion.identity); 
+        GameObject BigPlayer= Instantiate(BigPlayerPrefab, muzzle.transform.position, muzzle.transform.rotation); 
         rb=BigPlayer.GetComponent<Rigidbody>();
         StartCoroutine(ApplyForce());
         bigPlayerSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().sprite = sliderLoadImage;  
         chargeCount=0;
+        BigPlayer.transform.SetParent(Level1.transform);
     }
 
     private void MoveHorizontal()
@@ -88,10 +95,14 @@ public class CannonManager : MonoBehaviour
 
     IEnumerator ApplyForce()
     {
+        if (rb)
+        {
         rb.AddForce(muzzle.transform.forward * shotSpeed, ForceMode.Impulse);
         yield return new WaitForSeconds(.4f);
         rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;  
+        }
+        
     }
 
 }

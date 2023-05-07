@@ -27,7 +27,7 @@ public class PlayerManager : MonoBehaviour
                 Destroy(gameObject,0.2f);
             }
         }
-        else
+        else if (gameObject.CompareTag("big"))
         {
             if(other.CompareTag("enemysmall"))
             {

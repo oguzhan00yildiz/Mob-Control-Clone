@@ -11,6 +11,8 @@ public class PathFollow : MonoBehaviour
     private Quaternion lookRotation;
     private Vector3 direction;
     private int pointsIndex;
+    [SerializeField] private GameObject Level1;
+    private bool isLevelDestroyed=false;
 
     void Start()
     {
@@ -20,7 +22,12 @@ public class PathFollow : MonoBehaviour
     {
         if(CastleManager.instance.castleHealth < -10)
         {
-            if (pointsIndex <= Points.Length - 1)
+            if (Level1)
+            {
+               StartCoroutine(DestroyLevel());   
+            }
+          
+            if (pointsIndex <= Points.Length - 1&&isLevelDestroyed)
             {
                 transform.position = Vector3.MoveTowards(transform.position, Points[pointsIndex].transform.position, moveSpeed * Time.deltaTime);
 
@@ -34,6 +41,7 @@ public class PathFollow : MonoBehaviour
                     }
                 }
             }
+
         }
         
     }
@@ -51,6 +59,15 @@ public class PathFollow : MonoBehaviour
         }
 
         transform.rotation = Quaternion.LookRotation(direction);
+    }
+
+    private IEnumerator DestroyLevel()
+    {
+        Vector3 targetPosition = new Vector3(Level1.transform.position.x, -30, Level1.transform.position.z);
+        Level1.transform.position = Vector3.Slerp(Level1.transform.position, targetPosition, Time.deltaTime * 1f);
+        yield return new WaitForSeconds(1.5f);
+        isLevelDestroyed=true;
+        Destroy(Level1);
     }
 
 
