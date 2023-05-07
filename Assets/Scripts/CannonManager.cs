@@ -60,7 +60,7 @@ public class CannonManager : MonoBehaviour
 {
     float mouseX = Input.mousePosition.x / Screen.width;
     float xPos = (mouseX - 0.5f) * speed * 2f; 
-    xPos = Mathf.Clamp(xPos, -20f, 20f);
+    xPos = Mathf.Clamp(xPos, -15f, 15f);
 
     // Convert the input position from world space to local space
     Vector3 localPos = transform.TransformDirection(new Vector3(xPos, 0f, 0f));
