@@ -2446,7 +2446,7 @@ PrefabInstance:
       objectReference: {fileID: 520101612}
     - target: {fileID: 1110065239985234241, guid: 48ee090fdef0914448845a623ea81ac2, type: 3}
       propertyPath: shotSpeed
-      value: 25
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1110065239985234241, guid: 48ee090fdef0914448845a623ea81ac2, type: 3}
       propertyPath: sliderFullImage

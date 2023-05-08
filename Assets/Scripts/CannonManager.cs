@@ -53,7 +53,7 @@ public class CannonManager : MonoBehaviour
         animator.SetTrigger("CannonShoot");
         GameObject cloneBlue= Instantiate(bluePrefab, muzzle.transform.position, muzzle.transform.rotation);
         rb=cloneBlue.GetComponent<Rigidbody>();
-        StartCoroutine(ApplyForce());
+        StartCoroutine(ApplyForce(rb));
         if(chargeCount <25) chargeCount++; 
         if (cloneBlue)
         {
@@ -67,7 +67,7 @@ public class CannonManager : MonoBehaviour
         animator.SetTrigger("CannonShoot");
         GameObject BigPlayer= Instantiate(BigPlayerPrefab, muzzle.transform.position, muzzle.transform.rotation); 
         rb=BigPlayer.GetComponent<Rigidbody>();
-        StartCoroutine(ApplyForce());
+        StartCoroutine(ApplyForce(rb));
         bigPlayerSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().sprite = sliderLoadImage;  
         chargeCount=0;
         BigPlayer.transform.SetParent(Level1.transform);
@@ -93,14 +93,14 @@ public class CannonManager : MonoBehaviour
         transform.position = new Vector3(xPos, transform.position.y, transform.position.z);
     } */
 
-    IEnumerator ApplyForce()
+    IEnumerator ApplyForce(Rigidbody rb)
     {
         if (rb)
         {
-        rb.AddForce(muzzle.transform.forward * shotSpeed, ForceMode.Impulse);
-        yield return new WaitForSeconds(.4f);
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;  
+            rb.AddForce(muzzle.transform.forward * shotSpeed, ForceMode.Impulse);
+            yield return new WaitForSeconds(0.4f);
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;  
         }
         
     }
