@@ -14,7 +14,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3050
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -42,16 +42,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Choppines: 0.01
-    - _FlowSpeed: 0.01
-    - _FlowStrength: 0.0075
+    - _Choppines: 0
+    - _FlowSpeed: 0.02
+    - _FlowStrength: 0.007
     - _QueueControl: 0
-    - _QueueOffset: 0
-    - _Size: 1.32
+    - _QueueOffset: 50
+    - _Size: 50
     m_Colors:
-    - _DarkFoamColor: {r: 1, g: 1, b: 1, a: 0}
-    - _LightFoamColor: {r: 1, g: 1, b: 1, a: 0}
-    - _WaterColor: {r: 0.16353682, g: 0.7213759, b: 0.990566, a: 0}
+    - _DarkFoamColor: {r: 0.63529414, g: 0.9765479, b: 1, a: 0}
+    - _LightFoamColor: {r: 0.6367924, g: 0.9751414, b: 1, a: 0}
+    - _WaterColor: {r: 0.28773582, g: 0.7670795, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2198457486420498438
 MonoBehaviour:
