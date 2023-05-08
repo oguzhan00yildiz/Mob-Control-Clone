@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PathFollow : MonoBehaviour
 {
@@ -13,10 +14,11 @@ public class PathFollow : MonoBehaviour
     private Vector3 direction;
     private int pointsIndex;
     [SerializeField] private GameObject Level1;
-    private bool isLevelDestroyed=false;
+    public bool isLevelDestroyed=false;
     [SerializeField] private GameObject enemyspawner;
     public static PathFollow instance;
     public bool isLevel2;
+    [SerializeField] GameObject castle1,castle2;
 
     void Start()
     {
@@ -24,8 +26,12 @@ public class PathFollow : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(CastleManager.instance.castleHealth < -10)
+      Debug.Log(pointsIndex);
+        if (castle1)
         {
+            if(castle1.GetComponent<CastleManager>().castleHealth < -10)
+        {
+            
             if (Level1)
             {
                StartCoroutine(DestroyLevel());   
@@ -33,28 +39,28 @@ public class PathFollow : MonoBehaviour
           
             if (pointsIndex <= Points.Length - 1&&isLevelDestroyed)
             {
+                Debug.Log("aaaaa");
                 CannonBottom.transform.eulerAngles=new Vector3(0,90,0);
                 transform.position = Vector3.MoveTowards(transform.position, Points[pointsIndex].transform.position, moveSpeed * Time.deltaTime);
 
                 if (transform.position == Points[pointsIndex].transform.position)
                 {
                     pointsIndex++;
-                    
-
                     if (pointsIndex <= Points.Length - 1)
                     {
-                        StartCoroutine(RotateTowardsPoint(Points[pointsIndex].transform.position));
-                        
+                        StartCoroutine(RotateTowardsPoint(Points[pointsIndex].transform.position)); 
                     }
-
                     CannonBottom.transform.localEulerAngles=new Vector3(0,0,0);
                     enemyspawner.SetActive(true);
                     isLevel2=true;
                 }
             }
-
         }
-        
+        }
+        if(castle2.GetComponent<CastleManager>().castleHealth < -10)
+        {
+              SceneManager.LoadScene(2);
+        } 
     }
 
     private IEnumerator RotateTowardsPoint(Vector3 targetPoint)
@@ -79,7 +85,7 @@ public class PathFollow : MonoBehaviour
         Level1.transform.position = Vector3.Slerp(Level1.transform.position, targetPosition, Time.deltaTime * 1f);
         yield return new WaitForSeconds(1.5f);
         isLevelDestroyed=true;
-        Destroy(Level1);
+        //Destroy(Level1);
 
     }
 

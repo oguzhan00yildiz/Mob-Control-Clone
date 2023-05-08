@@ -39,25 +39,18 @@ public class GateManager : MonoBehaviour
         int multiplier=1;
         multiplier=multiplynumber;
         
-        for (int i = 0; i < multiplier/2; i++)
+        for (int i = 0; i < multiplier; i++)
         {
             var rnd=Random.Range(-1f,1f);
             Vector3 newPosition = playerPosition + new Vector3(rnd, 0, 0);
             if (charactertype.CompareTag("small"))
             {
-                cloneSmall = Instantiate(smallPrefab, newPosition, Quaternion.identity);
+                cloneSmall = Instantiate(smallPrefab, newPosition,transform.rotation);
                 StartCoroutine(TagTimer(cloneSmall));
+                if (!PathFollow.instance.isLevelDestroyed)
+                {
                 cloneSmall.transform.SetParent(level1.transform);
-            }
-            else if(charactertype.CompareTag("big"))
-            {
-                cloneBig = Instantiate(bigPrefab, newPosition, Quaternion.identity);
-                StartCoroutine(TagTimer(cloneBig));
-                cloneBig.transform.SetParent(level1.transform);
-
-                cloneBig = Instantiate(bigPrefab, newPosition, Quaternion.identity);
-                StartCoroutine(TagTimer(cloneBig));
-                cloneBig.transform.SetParent(level1.transform);
+                }
             }
             
         }
@@ -66,12 +59,16 @@ public class GateManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("small")||other.CompareTag("big"))
+        if (other.CompareTag("small"))
         {
            playerPosition=other.transform.position;
            Destroy(other.gameObject);
            Multiply(multiplyNumber,other.gameObject); 
-        } 
+        }
+        else if(other.CompareTag("big"))
+        {
+            
+        }
     }
 
     private IEnumerator TagTimer(GameObject obj)

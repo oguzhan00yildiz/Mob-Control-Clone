@@ -81,7 +81,11 @@ public class CannonManager : MonoBehaviour
         StartCoroutine(ApplyForce(rb));
         bigPlayerSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().sprite = sliderLoadImage;  
         chargeCount=0;
-        BigPlayer.transform.SetParent(Level1.transform);
+        if (BigPlayer)
+        {
+            BigPlayer.transform.SetParent(Level1.transform);
+        }
+        
     }
 
     private void MoveHorizontal()
@@ -111,8 +115,12 @@ public class CannonManager : MonoBehaviour
             Vector3 muzzleWorldPos = muzzle.transform.position + muzzle.transform.TransformDirection(Vector3.forward * 7);
             rb.DOMove(muzzleWorldPos, .3f);
             yield return new WaitForSeconds(0.4f);
+            if (rb)
+            {
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;  
+            }
+            
         }
     }
 

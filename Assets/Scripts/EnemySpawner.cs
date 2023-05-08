@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float fireRate;
     [SerializeField] private float fireDuration;
     [SerializeField] private GameObject level1;
+    [SerializeField] private GameObject level2;
     private float nextFire = 0f; 
     private Rigidbody rb;
     private bool isSpawnDone;
@@ -68,10 +69,18 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         int rnd=Random.Range(-5,5);
-        GameObject enemySmall = Instantiate(enemySmallPrefab, transform.position+new Vector3(rnd,0,0), Quaternion.Euler(0, 180, 0));
+        GameObject enemySmall = Instantiate(enemySmallPrefab, transform.position+new Vector3(rnd,0,0),Quaternion.Euler(0, 180, 0));
         rb = enemySmall.GetComponent<Rigidbody>();
         StartCoroutine(ApplyForce());
-        enemySmall.transform.SetParent(level1.transform);
+        if (level1)
+        {
+            enemySmall.transform.SetParent(level1.transform);
+        }
+        else if(level2)
+        {
+            enemySmall.transform.SetParent(level2.transform);
+        }
+        
     }
 
     IEnumerator ApplyForce()
