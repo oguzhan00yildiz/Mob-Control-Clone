@@ -12,6 +12,7 @@ TagManager:
   - Castle
   - CastleRotate
   - BaseLine
+  - muzzle
   layers:
   - Default
   - TransparentFX

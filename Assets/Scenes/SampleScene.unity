@@ -2446,6 +2446,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.80257
       objectReference: {fileID: 0}
+    - target: {fileID: 1110065239082280942, guid: 48ee090fdef0914448845a623ea81ac2, type: 3}
+      propertyPath: m_TagString
+      value: muzzle
+      objectReference: {fileID: 0}
     - target: {fileID: 1110065239082280943, guid: 48ee090fdef0914448845a623ea81ac2, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.57

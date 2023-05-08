@@ -52,7 +52,7 @@ public class CannonManager : MonoBehaviour
     private void Shoot()
     {
         animator.SetTrigger("CannonShoot");
-        GameObject cloneBlue= Instantiate(bluePrefab, muzzle.transform.position, muzzle.transform.localRotation);
+        GameObject cloneBlue= Instantiate(bluePrefab, muzzle.transform.position, muzzle.transform.rotation);
         rb=cloneBlue.GetComponent<Rigidbody>();
         StartCoroutine(ApplyForce(rb));
         if(chargeCount <25) chargeCount++; 
@@ -66,7 +66,7 @@ public class CannonManager : MonoBehaviour
     private void ShootBig()
     {
         animator.SetTrigger("CannonShoot");
-        GameObject BigPlayer= Instantiate(BigPlayerPrefab, muzzle.transform.position, muzzle.transform.localRotation); 
+        GameObject BigPlayer= Instantiate(BigPlayerPrefab, muzzle.transform.position, muzzle.transform.rotation); 
         rb=BigPlayer.GetComponent<Rigidbody>();
         StartCoroutine(ApplyForce(rb));
         bigPlayerSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().sprite = sliderLoadImage;  
