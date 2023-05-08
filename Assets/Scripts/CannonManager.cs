@@ -17,9 +17,11 @@ public class CannonManager : MonoBehaviour
     [SerializeField] private Sprite sliderFullImage;
     [SerializeField] private Sprite sliderLoadImage;
     [SerializeField] private GameObject Level1;
+    [SerializeField] private GameObject releaseTxt;
     private int chargeCount=0;
     public float shotSpeed=10f; 
     private float nextFire = 0.0f; 
+    private bool isclicked=false;
 
     void Update()
     {
@@ -30,18 +32,26 @@ public class CannonManager : MonoBehaviour
         }
         else if(Input.GetMouseButtonUp(0) && chargeCount == 25) ShootBig();
         bigPlayerSlider.value = chargeCount;
-        
+        releaseTxt.SetActive(false);
         if(bigPlayerSlider.value == 25)
         {
+            releaseTxt.SetActive(true);
             bigPlayerSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().sprite = sliderFullImage;
         }
         
+        if (Input.GetMouseButtonDown(0))
+        {
+            isclicked=true;
+        }
 
     }
 
     private void FixedUpdate()
-    {
+    {       if (isclicked)
+        {
         MoveHorizontal();
+        }
+        
     }
 
     private void Start()

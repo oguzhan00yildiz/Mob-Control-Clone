@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class BaseLine : MonoBehaviour
 {
     [SerializeField] private GameObject defeatImg;  
@@ -32,5 +33,6 @@ public class BaseLine : MonoBehaviour
         Time.timeScale = 0.2f;
         yield return new WaitForSecondsRealtime(3);
         Time.timeScale = 1;
+        SceneManager.LoadScene(3);
     }
 }

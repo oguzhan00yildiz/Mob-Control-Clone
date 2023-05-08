@@ -12,12 +12,14 @@ public class EnemySpawner : MonoBehaviour
     private float nextFire = 0f; 
     private Rigidbody rb;
     private bool isSpawnDone;
+    private bool isclicked=false;
 
 
     void Update()
     {
-        
-        if (isSpawnDone==false)
+        if (isclicked)
+        {
+             if (isSpawnDone==false)
         {
             if (Time.time > nextFire)
             {
@@ -25,12 +27,22 @@ public class EnemySpawner : MonoBehaviour
                 nextFire = Time.time + fireRate; 
             }
         }
+
+        }
+
+       
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            isclicked=true;
+            StartCoroutine(Timer());
+        }
         
     }
 
     void Start()
     {
-        StartCoroutine(Timer());
+        
     }
 
     private void SpawnEnemy()
