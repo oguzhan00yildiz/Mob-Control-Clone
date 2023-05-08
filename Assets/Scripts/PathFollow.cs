@@ -14,10 +14,13 @@ public class PathFollow : MonoBehaviour
     private int pointsIndex;
     [SerializeField] private GameObject Level1;
     private bool isLevelDestroyed=false;
+    [SerializeField] private GameObject enemyspawner;
+    public static PathFollow instance;
+    public bool isLevel2;
 
     void Start()
     {
-
+        instance= this;
     }
     private void FixedUpdate()
     {
@@ -45,6 +48,8 @@ public class PathFollow : MonoBehaviour
                     }
 
                     CannonBottom.transform.localEulerAngles=new Vector3(0,0,0);
+                    enemyspawner.SetActive(true);
+                    isLevel2=true;
                 }
             }
 
@@ -75,6 +80,7 @@ public class PathFollow : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         isLevelDestroyed=true;
         Destroy(Level1);
+
     }
 
 

@@ -30,6 +30,26 @@ public class EnemySpawner : MonoBehaviour
 
         }
 
+
+
+        if (PathFollow.instance.isLevel2)
+        {
+            StartCoroutine(Timer());
+
+             if (isSpawnDone==false)
+        {
+            if (Time.time > nextFire)
+            {
+                SpawnEnemy();
+                nextFire = Time.time + fireRate; 
+            }
+        }
+
+        }
+
+
+
+
        
 
         if (Input.GetMouseButtonDown(0))
