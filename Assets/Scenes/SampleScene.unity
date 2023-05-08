@@ -2267,6 +2267,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2054057743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1110065239082280942, guid: 48ee090fdef0914448845a623ea81ac2, type: 3}
+  m_PrefabInstance: {fileID: 1110065238650044866}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2055939180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2465,6 +2470,10 @@ PrefabInstance:
       propertyPath: Level1
       value: 
       objectReference: {fileID: 520101612}
+    - target: {fileID: 1110065239985234241, guid: 48ee090fdef0914448845a623ea81ac2, type: 3}
+      propertyPath: muzzle
+      value: 
+      objectReference: {fileID: 2054057743}
     - target: {fileID: 1110065239985234241, guid: 48ee090fdef0914448845a623ea81ac2, type: 3}
       propertyPath: shotSpeed
       value: 150

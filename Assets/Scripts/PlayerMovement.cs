@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private Transform muzzle;
     public float speed = 5f;
     
     private Rigidbody rb;
@@ -27,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        rb.velocity=transform.forward*speed;
+        rb.velocity=muzzle.rotation.eulerAngles*speed;
     }
 
     private void OnTriggerEnter(Collider other)

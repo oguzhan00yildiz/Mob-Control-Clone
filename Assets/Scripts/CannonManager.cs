@@ -98,13 +98,12 @@ public class CannonManager : MonoBehaviour
     {
         if (rb)
         {
-            //rb.AddForce(muzzle.transform.forward * shotSpeed, ForceMode.Impulse);
-            rb.DOMove(muzzle.transform.position+new Vector3(0,0,7),.3f);
+            Vector3 muzzleWorldPos = muzzle.transform.position + muzzle.transform.TransformDirection(Vector3.forward * 7);
+            rb.DOMove(muzzleWorldPos, .3f);
             yield return new WaitForSeconds(0.4f);
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;  
         }
-        
     }
 
 }
