@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class CannonManager : MonoBehaviour
 {
@@ -51,7 +52,7 @@ public class CannonManager : MonoBehaviour
     private void Shoot()
     {
         animator.SetTrigger("CannonShoot");
-        GameObject cloneBlue= Instantiate(bluePrefab, muzzle.transform.position, muzzle.transform.rotation);
+        GameObject cloneBlue= Instantiate(bluePrefab, muzzle.transform.position, muzzle.transform.localRotation);
         rb=cloneBlue.GetComponent<Rigidbody>();
         StartCoroutine(ApplyForce(rb));
         if(chargeCount <25) chargeCount++; 
@@ -65,7 +66,7 @@ public class CannonManager : MonoBehaviour
     private void ShootBig()
     {
         animator.SetTrigger("CannonShoot");
-        GameObject BigPlayer= Instantiate(BigPlayerPrefab, muzzle.transform.position, muzzle.transform.rotation); 
+        GameObject BigPlayer= Instantiate(BigPlayerPrefab, muzzle.transform.position, muzzle.transform.localRotation); 
         rb=BigPlayer.GetComponent<Rigidbody>();
         StartCoroutine(ApplyForce(rb));
         bigPlayerSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().sprite = sliderLoadImage;  
@@ -97,7 +98,8 @@ public class CannonManager : MonoBehaviour
     {
         if (rb)
         {
-            rb.AddForce(muzzle.transform.forward * shotSpeed, ForceMode.Impulse);
+            //rb.AddForce(muzzle.transform.forward * shotSpeed, ForceMode.Impulse);
+            rb.DOMove(muzzle.transform.position+new Vector3(0,0,7),.3f);
             yield return new WaitForSeconds(0.4f);
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;  

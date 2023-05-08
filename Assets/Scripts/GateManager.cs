@@ -39,7 +39,7 @@ public class GateManager : MonoBehaviour
         int multiplier=1;
         multiplier=multiplynumber;
         
-        for (int i = 0; i < multiplier; i++)
+        for (int i = 0; i < multiplier/2; i++)
         {
             var rnd=Random.Range(-1f,1f);
             Vector3 newPosition = playerPosition + new Vector3(rnd, 0, 0);
@@ -51,6 +51,10 @@ public class GateManager : MonoBehaviour
             }
             else if(charactertype.CompareTag("big"))
             {
+                cloneBig = Instantiate(bigPrefab, newPosition, Quaternion.identity);
+                StartCoroutine(TagTimer(cloneBig));
+                cloneBig.transform.SetParent(level1.transform);
+
                 cloneBig = Instantiate(bigPrefab, newPosition, Quaternion.identity);
                 StartCoroutine(TagTimer(cloneBig));
                 cloneBig.transform.SetParent(level1.transform);
