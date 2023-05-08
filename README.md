@@ -13,3 +13,6 @@
 # How To Launch Completed Level
 Go to the scenes folder and open SampleScene for the first level.
 Do not forget to set aspect ratio 1080x1920 from scene or any mobile resolution you want.
+
+![image](https://user-images.githubusercontent.com/95942385/236957516-d8a23bcf-cf18-4066-bc1d-cb3566a5d8ae.png)
+
