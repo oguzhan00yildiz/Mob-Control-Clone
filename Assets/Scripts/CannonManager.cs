@@ -20,6 +20,7 @@ public class CannonManager : MonoBehaviour
     private int chargeCount=0;
     public float shotSpeed=10f; 
     private float nextFire = 0.0f; 
+    private bool isclicked=false;
 
     void Update()
     {
@@ -36,12 +37,19 @@ public class CannonManager : MonoBehaviour
             bigPlayerSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().sprite = sliderFullImage;
         }
         
+        if (Input.GetMouseButtonDown(0))
+        {
+            isclicked=true;
+        }
 
     }
 
     private void FixedUpdate()
-    {
+    {       if (isclicked)
+        {
         MoveHorizontal();
+        }
+        
     }
 
     private void Start()
