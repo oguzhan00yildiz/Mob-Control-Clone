@@ -47,11 +47,11 @@ Material:
     - _FlowStrength: 0.0075
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Size: 2
+    - _Size: 1.32
     m_Colors:
-    - _DarkFoamColor: {r: 0.04396583, g: 0.41746548, b: 0.7169812, a: 0}
+    - _DarkFoamColor: {r: 1, g: 1, b: 1, a: 0}
     - _LightFoamColor: {r: 1, g: 1, b: 1, a: 0}
-    - _WaterColor: {r: 0, g: 0.67397255, b: 1, a: 0}
+    - _WaterColor: {r: 0.16353682, g: 0.7213759, b: 0.990566, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2198457486420498438
 MonoBehaviour:
