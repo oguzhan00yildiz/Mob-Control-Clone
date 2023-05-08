@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
@@ -18,8 +19,25 @@ public class MenuScript : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-         hand.SetActive(false);
-         slidetext.SetActive(false);   
+            if (hand)
+            {
+                hand.SetActive(false);
+            }
+         if (slidetext)
+         {
+            slidetext.SetActive(false);  
+         }
+          
         }
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
