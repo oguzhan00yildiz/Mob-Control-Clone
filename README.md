@@ -11,5 +11,5 @@
 # You can find the 3D Elements in the "3DModels" folder.
 
 # How To Launch Completed Level
-Go to the scenes folder and open Level1 for the first level.
+Go to the scenes folder and open SampleScene for the first level.
 Do not forget to set aspect ratio 1080x1920 from scene or any mobile resolution you want.
